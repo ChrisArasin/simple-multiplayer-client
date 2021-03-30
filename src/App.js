@@ -11,11 +11,10 @@ function App() {
   const [players, setPlayers] = useState({});
 
   const handleStateUpdate = (players) => {
+    console.log(players);
     setPlayers(players);
   };
-  const handleInitData = ({ id }) => {
-    setSelfId(id);
-  };
+
   const handleUpdatePosition = (x, y) => {
     setSelfPosition({ x, y });
     network.sendPosition({ x, y });
@@ -28,7 +27,7 @@ function App() {
     const rand = Math.random();
     const color = rand < 0.33 ? 'red' : rand < 0.66 ? 'blue' : 'green';
     setSelfColor(color);
-    network.init(color, handleInitData, handleStateUpdate);
+    network.init(color, setSelfId, handleStateUpdate);
   }, []);
 
   // window resize handler
