@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import network from './Network';
 
+const serverUrl = 'https://simple-multiplayer-server.glitch.me';
+
 function App() {
   const [boardOffset, setBoardOffset] = useState({ x: 0, y: 0 });
   const [selfPosition, setSelfPosition] = useState({ x: 250, y: 250 });
@@ -11,7 +13,6 @@ function App() {
   const [players, setPlayers] = useState({});
 
   const handleStateUpdate = (players) => {
-    console.log(players);
     setPlayers(players);
   };
 
@@ -27,7 +28,7 @@ function App() {
     const rand = Math.random();
     const color = rand < 0.33 ? 'red' : rand < 0.66 ? 'blue' : 'green';
     setSelfColor(color);
-    network.init(color, setSelfId, handleStateUpdate);
+    network.init(serverUrl, color, setSelfId, handleStateUpdate);
   }, []);
 
   // window resize handler

@@ -1,11 +1,10 @@
 import io from 'socket.io-client';
 
-const serverUrl = 'https://simple-multiplayer-server.glitch.me';
-
 class Network {
-  init(color, updateSelfId, handleStateUpdate) {
+  init(serverUrl, color, updateSelfId, handleStateUpdate) {
     this.socket = io.connect(serverUrl);
     this.socket.on('connect', () => {
+      // Get self ID from the connected socket and store
       updateSelfId(this.socket.id);
 
       // register for state updates from the server
