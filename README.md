@@ -2,6 +2,8 @@
 
 A demo front end app for implementing a realtime multiplayer interface. The back-end is hosted on Glitch: https://glitch.com/~simple-multiplayer-server.
 
+There is a walkthrough of this demo [on Medium](https://medium.com/bluecadet/just-enough-multiplayer-a-simple-start-for-prototyping-realtime-multi-user-spaces-with-socket-io-1fd260ef3e54)
+
 ## Running the Project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). In the project directory, you can run:
